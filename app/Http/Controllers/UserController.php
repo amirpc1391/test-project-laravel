@@ -9,9 +9,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('index', ['users' => $users]);
+        return view('panel.users.index', ['users' => $users]);
     }
-
+    public function create()
+    {
+        return view('panel.users.create');
+    }
     public function store()
     {
         User::create(request()->only(['name', 'email', 'password']));
@@ -24,7 +27,7 @@ class UserController extends Controller
         if(!$user)
             abort(404);
 
-        return view('edit', ['user' => User::find($user_id)]);
+        return view('panel.users.edit', ['user' => User::find($user_id)]);
     }
 
     public function update($user_id)
