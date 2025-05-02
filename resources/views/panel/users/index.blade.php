@@ -64,7 +64,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at->format('Y-m-d') }}</td>
-               
+
                 <td>
                   <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-primary">
                     <i class="fas fa-edit"></i> Edit
@@ -77,6 +77,10 @@
                       <i class="fas fa-trash"></i> Delete
                     </button>
                   </form>
+                    <a href="{{ route('logs', $user->id) }}" class="btn btn-sm btn-secondary">
+                        <i class="fas fa-info"></i> Logs
+                    </a>
+
                 </td>
               </tr>
             @endforeach
