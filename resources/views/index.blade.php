@@ -2,7 +2,6 @@
 <head>
 
     <style>
-        /* استایل جدول */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -10,7 +9,6 @@
             font-family: Arial, sans-serif;
         }
 
-        /* استایل برای سطرهای جدول */
         th, td {
             padding: 10px;
             text-align: left;
@@ -30,7 +28,6 @@
             background-color: #e9e9e9;
         }
 
-        /* استایل برای لینک‌ها */
         a {
             text-decoration: none;
             color: #007bff;
@@ -43,17 +40,17 @@
             background-color: #e7f3ff;
         }
 
-        /* استایل برای فرم‌ها */
+
         form {
             display: inline-block;
         }
 
-        /* استایل برای دکمه‌ها */
+
         .action-buttons a {
             margin-right: 10px;
         }
 
-        /* استایل برای لینک حذف */
+
         .delete-link {
             color: #ff4d4d;
         }
@@ -73,7 +70,6 @@
             background-color: #f9f9f9;
         }
 
-        /* استایل برای برچسب‌ها */
         label {
             font-size: 14px;
             font-weight: bold;
@@ -82,7 +78,6 @@
             color: #333;
         }
 
-        /* استایل برای ورودی‌ها */
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -93,7 +88,6 @@
             box-sizing: border-box;
         }
 
-        /* استایل برای دکمه ارسال */
         button {
             background-color: #4CAF50;
             color: white;
@@ -106,19 +100,17 @@
             margin-top: 10px;
         }
 
-        /* تغییر رنگ دکمه در هنگام hover */
         button:hover {
             background-color: #45a049;
         }
 
-        /* فاصله بین فرم و محتوای صفحه */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             padding: 50px 0;
         }
 
-        /* استایل برای پیغام خطا یا موفقیت */
+
         .error-message {
             color: #ff4d4d;
             font-size: 14px;

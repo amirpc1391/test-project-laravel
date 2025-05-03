@@ -15,7 +15,7 @@ class AuthController extends Controller{
             return redirect()->back();
         }
         Auth::login($user);
-        return redirect()->to(route('panel1'));
+        return redirect()->to(route('panel'));
     }
     public function logout(){
         if(!Auth::check()){
