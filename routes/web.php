@@ -60,7 +60,7 @@ use Illuminate\Support\Facades\Route;
 //
 //});
 
-//Route::group(['prefix' => '/panel', 'middleware' => ['auth:web', \App\Http\Middleware\LogUserActivity::class]], function () {
+Route::group(['prefix' => '/panel', 'middleware' => ['auth:web', \App\Http\Middleware\LogUserActivity::class]], function () {
     Route::view('/show', "panel.index")->name('panel');
     Route::get('/users/{user}/logs', [UserController::class, 'logs'])->name('logs');
     Route::resource('users', UserController::class)->only(['index', 'store', 'edit', 'update', 'destroy', 'create']);
@@ -69,7 +69,7 @@ use Illuminate\Support\Facades\Route;
     Route::resource('categories', CategoryController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('projects', ProjectController::class);
-//});
+});
 
 
 Route::group(['middleware' => 'guest'], function () {
