@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Create User</h1>
+                    <h1>Create a Project</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Create User</li>
+                        <li class="breadcrumb-item"><a href="{{ route('projects.index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Create Project</li>
                     </ol>
                 </div>
             </div>
@@ -25,32 +25,21 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Create User</h3>
+                        <h3 class="card-title">Create a Project</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('users.store') }}" method="POST">
+                    <form action="{{ route('projects.store') }}" method="POST">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter full name" required>
+                                <label for="name">Project Name</label>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter project name" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input name="email" type="email" class="form-control" id="email" placeholder="Enter email" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
-                            </div>
-
-                            <!-- Roles Select -->
-                            <div class="form-group">
-                                <label for="roles">Roles</label>
-                                <select name="roles[]" class="form-control" id="roles" multiple required>
+                                <label for="roles">Assign Roles</label>
+                                <select name="roles[]" class="form-control" id="roles" multiple>
                                     @foreach($roles as $role)
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
@@ -60,7 +49,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Create User</button>
+                            <button type="submit" class="btn btn-primary">Create Project</button>
                         </div>
                     </form>
                 </div>

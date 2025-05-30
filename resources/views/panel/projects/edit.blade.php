@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit User</h1>
+                    <h1>Edit Project</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Edit User</li>
+                        <li class="breadcrumb-item"><a href="{{ route('projects.index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Edit Project</li>
                     </ol>
                 </div>
             </div>
@@ -25,47 +25,37 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Edit User</h3>
+                        <h3 class="card-title">Edit Project</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="{{ route('users.update', $user->id) }}" method="POST">
+                    <form action="{{ route('projects.update', $project->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input name="name" type="text" class="form-control" id="name" value="{{ $user->name }}" required>
+                                <label for="name">Project Name</label>
+                                <input name="name" type="text" class="form-control" id="name" value="{{ $project->name }}" required>
                             </div>
 
                             <div class="form-group">
-                                <label for="email">Email address</label>
-                                <input name="email" type="email" class="form-control" id="email" value="{{ $user->email }}" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input name="password" type="password" class="form-control" id="password" placeholder="New password">
-                            </div>
-
-                            <!-- Roles Select -->
-                            <div class="form-group">
-                                <label for="roles">Roles</label>
-                                <select name="roles[]" class="form-control" id="roles" multiple required>
+                                <label for="roles">Assign Roles</label>
+                                <select name="roles[]" class="form-control" id="roles" multiple>
                                     @foreach($roles as $role)
                                         <option value="{{ $role->id }}"
-                                                @if($user->roles->contains($role->id)) selected @endif>
+                                                @if($project->roles->contains($role->id)) selected @endif>
                                             {{ $role->name }}
                                         </option>
                                     @endforeach
                                 </select>
+                                <small class="form-text text-muted">Select roles for this project.</small>
                             </div>
                         </div>
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Update User</button>
+                            <button type="submit" class="btn btn-primary">Update Project</button>
                         </div>
                     </form>
                 </div>

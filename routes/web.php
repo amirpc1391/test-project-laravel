@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
@@ -58,14 +60,16 @@ use Illuminate\Support\Facades\Route;
 //
 //});
 
-Route::group(['prefix' => '/panel', 'middleware' => ['auth:web', \App\Http\Middleware\LogUserActivity::class]], function () {
+//Route::group(['prefix' => '/panel', 'middleware' => ['auth:web', \App\Http\Middleware\LogUserActivity::class]], function () {
     Route::view('/show', "panel.index")->name('panel');
     Route::get('/users/{user}/logs', [UserController::class, 'logs'])->name('logs');
     Route::resource('users', UserController::class)->only(['index', 'store', 'edit', 'update', 'destroy', 'create']);
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
-});
+    Route::resource('roles', RoleController::class);
+    Route::resource('projects', ProjectController::class);
+//});
 
 
 Route::group(['middleware' => 'guest'], function () {

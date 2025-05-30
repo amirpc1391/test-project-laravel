@@ -54,4 +54,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(LogIn::class);
     }
+    public function roles()
+    {
+        return $this->morphToMany(Role::class, 'roleable');
+    }
 }
