@@ -260,6 +260,12 @@
                                         <p>projects</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('tags.index') }}" class="nav-link {{ request()->routeIs('tags.index') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>tags</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">

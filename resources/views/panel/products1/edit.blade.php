@@ -36,17 +36,17 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="name">Product Name</label>
-                                <input name="name" type="text" class="form-control" id="name" value="{{ old('name', $product->name) }}" required>
+                                <input name="name" type="text" class="form-control" id="name" value="{{ $product->name }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Product Slug</label>
-                                <input name="slug" type="text" class="form-control" id="slug" value="{{ old('slug', $product->slug) }}" required>
+                                <input name="slug" type="text" class="form-control" id="slug" value="{{ $product->slug }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="number">Product Quantity</label>
-                                <input name="number" type="number" class="form-control" id="number" value="{{ old('number', $product->number) }}" required>
+                                <input name="number" type="number" class="form-control" id="number" value="{{ $product->number }}" required>
                             </div>
 
                             <div class="form-group">
@@ -56,18 +56,6 @@
                                         <option value="{{ $category->id }}" {{ $category->id == $product->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <!-- تگ‌ها -->
-                            <div class="form-group">
-                                <label for="tags">Tags</label><br>
-                                @foreach($tags as $tag)
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="tags[]" value="{{ $tag->id }}"
-                                               @if($product->tags->contains($tag->id)) checked @endif>
-                                        <label class="form-check-label" for="tags">{{ $tag->name }}</label>
-                                    </div>
-                                @endforeach
                             </div>
                         </div>
                         <!-- /.card-body -->

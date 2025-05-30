@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
@@ -69,6 +70,7 @@ Route::group(['prefix' => '/panel', 'middleware' => ['auth:web', \App\Http\Middl
     Route::resource('categories', CategoryController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('projects', ProjectController::class);
+    Route::resource('tags', TagController::class);
 });
 
 

@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Products Tables</h1>
+                    <h1>Tags Tables</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Home</a></li>
-                        <li class="breadcrumb-item active">Products Tables</li>
+                        <li class="breadcrumb-item"><a href="{{ route('tags.index') }}">Home</a></li>
+                        <li class="breadcrumb-item active">Tags Tables</li>
                     </ol>
                 </div>
             </div>
@@ -23,11 +23,11 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Products List</h3>
+                    <h3 class="card-title">Tags List</h3>
 
                     <div class="card-tools">
-                        <a href="{{ route('products.create') }}" class="btn btn-primary">
-                            <i class="fas fa-plus"></i> Create a Product
+                        <a href="{{ route('tags.create') }}" class="btn btn-primary">
+                            <i class="fas fa-tag"></i> Create a Tag
                         </a>
                     </div>
                 </div>
@@ -39,36 +39,23 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Category</th>
-                            <th>Quantity</th>
-                            <th>Tags</th>
                             <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($tags as $tag)
                             <tr>
-                                <td>{{ $product->id }}</td>
-                                <td>{{ $product->name }}</td>
-                                <td>{{ $product->category->name }}</td>
-                                <td>{{ $product->number }}</td>
-
-                                <!-- نمایش تگ‌ها -->
-                                <td>
-                                    @foreach($product->tags as $tag)
-                                        <span class="badge badge-info">{{ $tag->name }}</span>
-                                    @endforeach
-                                </td>
-
-                                <td>{{ $product->created_at->format('Y-m-d') }}</td>
+                                <td>{{ $tag->id }}</td>
+                                <td>{{ $tag->name }}</td>
+                                <td>{{ $tag->created_at->format('Y-m-d') }}</td>
 
                                 <td>
-                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-primary">
+                                    <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-sm btn-primary">
                                         <i class="fas fa-edit"></i> Edit
                                     </a>
 
-                                    <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                    <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this tag?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">

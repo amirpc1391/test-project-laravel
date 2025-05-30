@@ -26,6 +26,7 @@
                     <h3 class="card-title">Products List</h3>
 
                     <div class="card-tools">
+                        <!-- <button type="button" class="btn btn-block bg-gradient-primary">create a product</button> -->
                         <a href="{{ route('products.create') }}" class="btn btn-primary">
                             <i class="fas fa-plus"></i> Create a Product
                         </a>
@@ -41,7 +42,6 @@
                             <th>Name</th>
                             <th>Category</th>
                             <th>Quantity</th>
-                            <th>Tags</th>
                             <th>Created At</th>
                             <th>Actions</th>
                         </tr>
@@ -53,14 +53,6 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->number }}</td>
-
-                                <!-- نمایش تگ‌ها -->
-                                <td>
-                                    @foreach($product->tags as $tag)
-                                        <span class="badge badge-info">{{ $tag->name }}</span>
-                                    @endforeach
-                                </td>
-
                                 <td>{{ $product->created_at->format('Y-m-d') }}</td>
 
                                 <td>
